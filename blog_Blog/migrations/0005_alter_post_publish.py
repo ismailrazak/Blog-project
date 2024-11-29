@@ -7,13 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog_Blog', '0004_post_tags_alter_comment_post'),
+        ("blog_Blog", "0004_post_tags_alter_comment_post"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='publish',
+            model_name="post",
+            name="publish",
             field=models.DateTimeField(default=django.utils.timezone.now),
         ),
     ]

@@ -7,25 +7,44 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog_Blog', '0002_alter_post_slug'),
+        ("blog_Blog", "0002_alter_post_slug"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Comment',
+            name="Comment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('username', models.CharField(max_length=80)),
-                ('email', models.EmailField(max_length=254)),
-                ('active', models.BooleanField(default=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('body', models.TextField()),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comment', to='blog_Blog.post')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("username", models.CharField(max_length=80)),
+                ("email", models.EmailField(max_length=254)),
+                ("active", models.BooleanField(default=True)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                ("body", models.TextField()),
+                (
+                    "post",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="comment",
+                        to="blog_Blog.post",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['created'],
-                'indexes': [models.Index(fields=['created'], name='blog_Blog_c_created_09da7b_idx')],
+                "ordering": ["created"],
+                "indexes": [
+                    models.Index(
+                        fields=["created"], name="blog_Blog_c_created_09da7b_idx"
+                    )
+                ],
             },
         ),
     ]

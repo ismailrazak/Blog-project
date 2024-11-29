@@ -11,14 +11,16 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+
 import dj_database_url
-from  decouple import config
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER=config('EMAIL_HOST_USER')
-EMAIL_PASSWORD=config('EMAIL_PASSWORD')
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
-DEFAULT_FROM_EMAIL=config('DEFAULT_FROM_EMAIL')
+from decouple import config
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_PASSWORD = config("EMAIL_PASSWORD")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -36,7 +38,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-SITE_ID=1
+SITE_ID = 1
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -49,7 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     "taggit",
     "blog_Blog.apps.BlogBlogConfig",
-    #"accounts.apps.AccountConfig",
+    # "accounts.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
@@ -92,10 +94,7 @@ WSGI_APPLICATION = "blog.wsgi.application"
 #         'NAME': BASE_DIR / "db.sqlite3",
 #     }
 # }
-DATABASES = {
-"default":
-    dj_database_url.config(default=config("DATABASE_URL"))
-}
+DATABASES = {"default": dj_database_url.config(default=config("DATABASE_URL"))}
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

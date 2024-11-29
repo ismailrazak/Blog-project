@@ -73,7 +73,7 @@ def post_share(request, id):
         if form.is_valid():
             cd = form.cleaned_data
             post_url = request.build_absolute_uri(post.get_absolute_url())
-            subject = f"{cd['username']} reommneds ou to read {post.title}"
+            subject = f"{cd['username']} recommends you to read {post.title}"
             message = f"check out this post:{post_url}"
             send_mail(
                 subject=subject,
